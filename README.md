@@ -28,6 +28,11 @@
 2. Import SQL file.
 3. Modify your database connection information. (`model/dbModel.php`)
 
+## Authentication key 🔑
+
+- All keys are stored in the `keys` table in the database.
+
+
 ## How to use the API 🔍
 
 ### CURL
