@@ -1,0 +1,26 @@
+- Clé d'authentification obligatoire pour utiliser l'API.
+
+Pour générer un captcha, l'utilisateur doit :
+- OPTIONNEL : Préciser une longueur de la chaîne de caractères (6 à 12)
+- OPTIONNEL : Un couleur en premier plan et couleur de fond
+(Dans la mesure ou ce n'est pas renseigné, la génération doit se faire de manière automatique)
+
+- Une vérification de contraste des couleurs doit être respecté. (EX : Bleu cyan sur du blanc ne peut pas être possible et une génération de contraste respecté de manière automatique doit prendre le relais.)
+
+- La chaîne de caractère doit être illisible par les robots. (OBLIGATOIRE : Chaque lettre doit avoir un angle différent)
+(OPTIONNEL : Rajout de sécurité (ex: lettre difficilement lisible, forme géométrique superposé aux lettres, ...)
+
+Cette API doit répondre dans un format JSON avec les informations :
+- Texte généré en clair
+- Lien vers l'image
+- ID unique
+
+
+Elle doit également :
+- Pouvoir récupérer les informations d'un captcha déjà généré par le biais de son ID.
+
+
+Conventions :
+- PVP MVC From Scracth
+- POO
+- API de manipulation d'images (OPTIONNEL)
