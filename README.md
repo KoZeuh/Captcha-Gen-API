@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://imgur.com/" width="280" />
+  <img src="captchaImgs/a089a73bec9e129705e20c0c1.png" width="280" />
 </p>
 
 ## Features 🚀
