@@ -37,12 +37,35 @@
 
 ### CURL
 ```
+curl -X GET "http://localhost/generate.php?length=8&foreground=%23FF0000&background=%23FFFFFF&apiKey=test"
 
 ```
 
 ### AJAX
 ```
+function generateCaptcha() {
+    var xhr = new XMLHttpRequest();
+    var url = 'http://localhost/Captcha-Gen-API/generate.php'; // Remplacez par l'URL de votre API
 
+    // Paramètres de la requête (length, foreground, background, userKey)
+    var params = "length=8&foreground=%23FF0000&background=%23FFFFFF&apiKey=test"; // Remplacez les valeurs
+
+    xhr.open('GET', url + '?' + params, true);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                // Utilisez les données de réponse (code_generated, image_link, request_id)
+                console.log(response);
+            } else {
+                console.error('Erreur lors de la requête : ' + xhr.status);
+            }
+        }
+    };
+
+    xhr.send();
+}
 ```
 
 
