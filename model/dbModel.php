@@ -1,6 +1,7 @@
 <?php 
     class DBModel {
         private PDO $db;
+        private static $instance;
 
         private string $host = "localhost";
         private string $dbName = "captcha";
@@ -10,9 +11,18 @@
         public function __construct() {
             try {
                 $this->db = new PDO("mysql:host=$this->host;dbname=$this->dbName", $this->userName, $this->password);
+                $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (Exception $e) {
                 die('Erreur : ' . $e->getMessage());
             }
+        }
+
+        public static function getInstance()
+        {
+            if (!self::$instance) {
+                self::$instance = new self();
+            }
+            return self::$instance;
         }
 
         public function getApiKeyDoesExist($apiKey) {

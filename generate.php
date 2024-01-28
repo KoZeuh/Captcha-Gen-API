@@ -6,9 +6,8 @@
 
     require_once "./controller/captchaController.php";
 
-    $dbModel = new DBModel();
     $captchaModel = new Captcha(); 
-    $captchaController = new CaptchaController($captchaModel, $apiKey, $dbModel);
+    $captchaController = new CaptchaController($captchaModel, $apiKey);
 
     $captchaController->generateCaptchaAction($length, $foreground, $background);
 ?>

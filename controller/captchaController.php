@@ -8,16 +8,17 @@
         private DBModel $dbModel;
         private string $apiKey;
 
-        public function __construct($captchaModel, $apiKey, $dbModel) {
+        public function __construct($captchaModel, $apiKey) {
+            $this->dbModel = DBModel::getInstance();
+
             if (!$apiKey) {
                 return $this->sendResponse(['error' => 'No API key provided']);
-            }else if (!$dbModel->getApiKeyDoesExist($apiKey)) {
+            }else if (!$this->dbModel->getApiKeyDoesExist($apiKey)) {
                 return $this->sendResponse(['error' => 'Invalid API key']);
             }
 
             $this->captchaModel = $captchaModel;
             $this->apiKey = $apiKey;
-            $this->dbModel = $dbModel;
         }
 
         private function isValidContrast($foreground, $background) {
